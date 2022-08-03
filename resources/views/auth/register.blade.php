@@ -48,7 +48,7 @@
 
           <div class="mb-4">
              <label for= 'password' class='sr-only'>Password</label>
-             <input type= 'pass' name= 'password' id= 'password' placeholder="Your password" class='bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror' >
+             <input type= 'password' name= 'password' id= 'password' placeholder="Your password" class='bg-gray-100 border-2 w-full p-4 rounded-lg @error('password') border-red-500 @enderror' >
              @error('password')
                <div class="text-red-500 mt-2 text-sm">
                   {{$message}}
@@ -58,7 +58,7 @@
 
           <div class="mb-4">
              <label for= 'password_confirmation' class='sr-only'>Password confirmation</label>
-             <input type= 'pass' name= 'password_confirmation' id= 'password_confirmation' placeholder="Repeat your password" class='bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_confirmation') border-red-500 @enderror' >
+             <input type= 'password' name= 'password_confirmation' id='password_confirmation' placeholder="Repeat your password" class='bg-gray-100 border-2 w-full p-4 rounded-lg @error('password_confirmation') border-red-500 @enderror' >
              @error('password_confirmation')
                <div class="text-red-500 mt-2 text-sm">
                   {{$message}}
