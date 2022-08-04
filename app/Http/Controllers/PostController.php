@@ -7,8 +7,14 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(){
-      $posts = Post::orderBy('created_at','desc')->paginate(5);
+      $posts = Post::with('user','likes')->latest()->paginate(5);
       return view('posts.index', [ 'posts' => $posts]);
+    }
+
+    public function show(Post $post){
+      return view('posts.show', [
+        'post' => $post
+      ]);
     }
 
     public function store(Request $request){
@@ -17,6 +23,12 @@ class PostController extends Controller
       ]);
 
       $request->user()->posts()->create($request->only('body'));
+      return back();
+    }
+
+    public function destroy(Post $post){
+      $this->authorize('delete', $post);
+      $post->delete();
       return back();
     }
 }
